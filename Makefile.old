@@ -1,0 +1,10 @@
+CXX	= g++
+CXXFLAGS += -std=c++11 -I /home/saiclei/Research/Softwares/eigen-git-mirror/ -march=native -Wall 
+
+all: test_eigen.cpp softmax_layer.o softmax_layer.hpp
+	${CXX} ${CXXFLAGS} test_eigen.cpp softmax_layer.o -D_GLIBCXX_USE_CXX11_ABI=0 -o test_eigen 
+	
+.PHONY: clean
+
+clean:
+	rm -f *.o test_eigen 
